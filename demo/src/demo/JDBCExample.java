@@ -59,8 +59,8 @@ public class JDBCExample {
 		  clearScreen();
 		  
 		  
-		  while(rs.next()) {
 		  rs = stmt.executeQuery("SELECT c.id,c.name,s.name from channel c inner join station s on s.id=c.station_id ");
+		  while(rs.next()) {
 		  
 		  
 			  System.out.print(rs.getString(3)+" istasyonu - ");
@@ -133,8 +133,8 @@ public class JDBCExample {
      else if (secim.equals(c)) {
     	 clearScreen();
 		  System.out.println("Hangi İstasyona Eklemek İstiyorsunuz.Lütfen Numarasını giriniz.");
+		  rs = stmt.executeQuery("SELECT * from station ");
 		  while(rs.next()) {
-	    	  rs = stmt.executeQuery("SELECT * from station ");
 	    	  
 	    	  System.out.print(rs.getString(1));
 	    	  System.out.println(".istasyon : "+rs.getString(2));
@@ -166,8 +166,8 @@ public class JDBCExample {
 	  else if (secim.equals(d)) {
 		  clearScreen();
 		  System.out.println("Hangi İstasyona Ölçüm Eklemek İstiyorsunuz.Lütfen Numarasını giriniz.");
+		  rs = stmt.executeQuery("SELECT * from station ");
 		  while(rs.next()) {
-	    	  rs = stmt.executeQuery("SELECT * from station ");
 	    	 
 	    	  System.out.print(rs.getString(1));
 	    	  System.out.println(".istasyon : "+rs.getString(2));
@@ -175,8 +175,8 @@ public class JDBCExample {
 	      };
 	      int istasyon = girdi.nextInt();
 	      System.out.println("Lütfen Ölçüm Girilecek Kanal Numarasını Seçiniz	  : ");
+	      rs = stmt.executeQuery("SELECT c.name,s.name,c.id from channel c inner join station s on s.id=c.station_id ");
 	      while(rs.next()) {
-			  rs = stmt.executeQuery("SELECT c.name,s.name,c.id from channel c inner join station s on s.id=c.station_id ");
 	    	  
 	    		  System.out.print(rs.getString(3)+"-");
 		    	  System.out.print(rs.getString(2)+" istayonu ");
