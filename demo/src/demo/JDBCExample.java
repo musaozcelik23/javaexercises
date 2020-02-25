@@ -10,7 +10,7 @@ import java.util.*;
  * @author 
  */
 public class JDBCExample {
-	
+	//deneme
   public static void main(String[] args) {
 
     String jdbcUrl = "jdbc:postgresql://localhost:5432/aritma";
